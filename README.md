@@ -1,4 +1,4 @@
-# date_time_pikcer_sample
+# date_time_picker_sample
 
 Minimal sample for django-bootstrap-datetimepicker-plus for debugging and testing purposes
 
