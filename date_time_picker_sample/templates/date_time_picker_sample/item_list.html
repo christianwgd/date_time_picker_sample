@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static bootstrap4 %}
+
+{% block title %}Item List{% endblock %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Timestamp</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in item_list %}
+            <td>{{ item.name }}</td>
+            <td>{{ item.timestamp }}</td>
+            <td>
+                <a href="{% url 'update' item.id %}">
+                    Update
+                </a>
+            </td>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'create' %}">
+    Create new item
+</a>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static bootstrap4 %}
+
+{% block bootstrap4_extra_head %}
+{{ block.super }}
+{{ form.media.css }}
+{% endblock %}
+
+{% block bootstrap4_extra_script %}
+{{ block.super }}
+{{ form.media.js }}
+{% endblock %}
+
+{% block title %}Item List{% endblock %}
+
+{% block content %}
+<form method="post" role="form">
+    {% csrf_token %}
+
+    {% bootstrap_form form %}
+
+    <button class="btn btn-primary" name="submit" type="submit" formnovalidate>
+        Save
+    </button>
+    <button onclick="location.href={% url 'list' %}" class="btn btn-secondary" role="button">
+        Cancel
+    </button>
+</form>
+{% endblock %}
