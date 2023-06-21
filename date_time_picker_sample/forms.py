@@ -10,5 +10,12 @@ class ItemForm(forms.ModelForm):
         model = Item
         fields = ['name', 'timestamp']
         widgets = {
-            'timestamp': DateTimePickerInput()
+            'timestamp': DateTimePickerInput(
+                options={
+                    # https://getdatepicker.com/4/Options/#format
+                    'format': 'MM/DD/YYYY HH:mm',
+                    # https://getdatepicker.com/4/Options/#stepping
+                    'stepping': 10
+                }
+            )
         }
