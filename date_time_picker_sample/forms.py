@@ -15,7 +15,9 @@ class ItemForm(forms.ModelForm):
                     # https://getdatepicker.com/4/Options/#format
                     'format': 'MM/DD/YYYY HH:mm',
                     # https://getdatepicker.com/4/Options/#stepping
-                    'stepping': 10
+                    'stepping': 10,
+                    'showClose': True,
+                    'showClear': True
                 }
             )
         }
