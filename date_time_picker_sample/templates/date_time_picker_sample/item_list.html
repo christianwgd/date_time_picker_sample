@@ -1,9 +1,37 @@
 {% extends 'base.html' %}
-{% load static bootstrap4 %}
+{% load static django_bootstrap5 %}
+
+{% block bootstrap5_extra_head %}
+{{ block.super }}
+<link href="https://cdn.jsdelivr.net/npm/eonasdan-bootstrap-datetimepicker@4.17.49/build/css/bootstrap-datetimepicker.min.css" media="all" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/monim67/django-bootstrap-datepicker-plus@5.0.2/src/bootstrap_datepicker_plus/static/bootstrap_datepicker_plus/css/datepicker-widget.css" media="all" rel="stylesheet">
+{% endblock %}
+
+{% block bootstrap5_extra_script %}
+{{ block.super }}
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/eonasdan-bootstrap-datetimepicker@4.17.49/build/js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/monim67/django-bootstrap-datepicker-plus@5.0.2/src/bootstrap_datepicker_plus/static/bootstrap_datepicker_plus/js/datepicker-widget.js"></script>
+<script src="{% static 'js/bootstrap5.modal.forms.min.js' %}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (e) => {
+    modalForm(document.getElementById('id_update_modal'), {
+        formURL: "{% url 'create-modal' %}",
+        modalID: "#modal",
+  })
+});
+</script>
+{% endblock %}
 
 {% block title %}Item List{% endblock %}
 
 {% block content %}
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -28,4 +56,7 @@
 <a href="{% url 'create' %}">
     Create new item
 </a>
+<button id="id_update_modal" class="btn btn-link">
+    Create modal
+</button>
 {% endblock %}
