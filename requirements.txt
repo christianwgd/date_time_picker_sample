@@ -1,4 +1,4 @@
-Django==4.2.21
+Django==4.2.22
 django-bootstrap5==23.3
 django-bootstrap-modal-forms
 django-bootstrap-datepicker-plus==5.0.4
